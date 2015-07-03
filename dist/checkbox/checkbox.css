@@ -1,0 +1,44 @@
+:host:focus {
+  outline: none;
+}
+:host:hover {
+  background: #19CC95;
+  color: #ffffff;
+}
+:host .ui-checkbox {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  color: #14B886;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+:host .ui-checkbox .mark {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  padding: 0;
+  margin-right: 5px;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 2px solid #19cc95;
+  background-color: #ffffff;
+  transition: 0.1s ease-in-out;
+}
+:host .ui-checkbox .mark svg {
+  fill: #14B886;
+  position: relative;
+  top: -4px;
+  left: 1px;
+}

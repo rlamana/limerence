@@ -1,0 +1,51 @@
+:host {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 40px;
+  box-sizing: border-box;
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  color: #19cc95;
+  border: 2px solid #19cc95;
+  background-color: transparent;
+  transition: color 0.08s ease-in-out, width 0.3s ease-in-out;
+}
+:host:focus {
+  outline: none;
+}
+:host:hover {
+  background: #5ad4af;
+  border-color: #5ad4af;
+  color: #ffffff;
+}
+:host[pressed] {
+  background-color: #049e6f;
+  border-color: #049e6f;
+}
+:host[primary] {
+  background-color: #19cc95;
+  color: #fff;
+}
+:host[primary]:hover {
+  background-color: #5ad4af;
+  border-color: #5ad4af;
+}
+:host[primary][pressed] {
+  background-color: #049e6f;
+  border-color: #049e6f;
+}
+:host.ui-progress-state {
+  width: 40px;
+  padding-left: 0;
+  padding-right: 0;
+}

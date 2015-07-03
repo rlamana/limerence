@@ -1,0 +1,162 @@
+html, body {
+    font-family: 'Raleway', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+.limerence-docs {
+    padding: 0;
+    margin: 0;
+
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.limerence-docs .main-header {
+    text-align: center;
+    padding: 90px 45px;
+}
+
+.limerence-docs .main-header img {
+    width: 80px;
+}
+
+.limerence-docs h1 {
+    font-size: 45px;
+    letter-spacing: -2px;
+    font-weight: 100;
+
+    color: #19CC95;
+    padding-bottom: 5px;
+}
+
+.limerence-docs h2 {
+    font-size: 30px;
+    letter-spacing: 0px;
+    font-weight: 200;
+
+    padding-bottom: 5px;
+}
+
+.limerence-docs p {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgb(47, 47, 47);
+    line-height: 20px;
+}
+
+.limerence-docs pre[class*="language-"] {
+    font-size: 14px;
+    padding: 20px 25px;
+    max-height: 400px;
+
+    border-radius: 3px 0 0 3px;
+}
+
+.limerence-docs pre[class*="language-"] .token.tag {
+    color: #19CC95;
+}
+
+.limerence-docs .block.main-block h1 {
+    font-size: 38px;
+}
+
+.limerence-docs .block {
+    border-top: 1px solid rgba(25, 204, 149, 0.3);
+    padding: 30px 0;
+}
+
+.limerence-docs .block > h1 {
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0px;
+    padding: 0 5% 30px 0;
+    box-sizing: border-box;
+
+    color: #19CC95;
+}
+
+.limerence-docs .block > h2 {
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0px;
+    box-sizing: border-box;
+}
+
+.limerence-docs .block > h3 {
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0px;
+    padding: 30px 0;
+    box-sizing: border-box;
+}
+
+.limerence-docs .attributes {
+    padding: 30px 5%;
+    background-color: rgba(25, 204, 149, 0.05)
+}
+
+.limerence-docs .attributes > h3 {
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0px;
+    padding: 0 0 30px 0;
+    box-sizing: border-box;
+}
+
+.limerence-docs .attributes > ul > li {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.limerence-docs .attributes > ul > li .property {
+    font-family: 'Inconsolata', 'Consolas', 'Source Code Pro', 'Monaco', 'Menlo', monospace;
+    font-weight: bold;
+
+    margin-right: 30px;
+    min-width: 100px;
+    text-align: right;
+}
+
+.limerence-docs .attributes > ul > li .type {
+    font-family: 'Inconsolata', 'Consolas', 'Source Code Pro', 'Monaco', 'Menlo', monospace;
+
+    margin-right: 30px;
+}
+
+.limerence-docs .attributes > ul > li .description {
+    flex: 1;
+}
+
+.limerence-docs .attributes > ul > li .default::before {
+    content: 'Default:';
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.limerence-docs .attributes > ul > li .default {
+    margin-right: 30px;
+}
+
+.limerence-docs .center {
+    margin: 0 auto;
+}
+
+.limerence-docs .w100 { max-width: 100px; }
+.limerence-docs .w200 { max-width: 200px; }
+
+.limerence-docs .results {
+}

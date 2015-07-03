@@ -1,0 +1,70 @@
+@import '../core/colors.less';
+@import '../core/font.less';
+
+:host {
+    @fastTime: .08s;
+    @defaultTime: .3s;
+
+    @radius: 40px;
+
+    user-select: none;
+    cursor: pointer;
+
+    display: inline-block;
+    text-align: center;
+
+    padding: 10px 20px;
+    border-radius: @radius;
+
+    box-sizing: border-box;
+
+    font-family: @font;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0;
+
+    color: @lime;
+    border: 2px solid @lime;
+    background-color: transparent;
+
+    transition: color @fastTime ease-in-out, width @defaultTime ease-in-out;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        background: @limeLight;
+        border-color: @limeLight;
+        color: #ffffff;
+    }
+
+    &[pressed] {
+        background-color: @limeDark;
+        border-color: @limeDark;
+    }
+
+    &[primary] {
+        background-color: @lime;
+        color: #fff;
+
+        &:hover {
+            background-color: @limeLight;
+            border-color: @limeLight;
+        }
+
+        &[pressed] {
+            background-color: @limeDark;
+            border-color: @limeDark;
+        }
+    }
+
+    &.ui-progress-state {
+        width: @radius;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

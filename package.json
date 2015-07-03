@@ -1,0 +1,50 @@
+{
+  "name": "limerence",
+  "version": "0.0.1",
+  "author": {
+    "name": "Ramon Lamana",
+    "email": "rlamana@gmail.com"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babelify": "~6.0.1",
+    "browserify": "~9.0.7",
+    "chai": "^1.9.1",
+    "chai-jquery": "^1.2.3",
+    "colors": "^1.0.3",
+    "connect": "~3.3.4",
+    "del": "^1.2.0",
+    "gulp": "^3.8.7",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-babel": "~5.0.0",
+    "gulp-concat": "^2.3.4",
+    "gulp-copy": "0.0.2",
+    "gulp-cssmin": "~0.1.6",
+    "gulp-jshint": "^1.8.4",
+    "gulp-less": "~3.0.2",
+    "gulp-plumber": "^0.6.6",
+    "gulp-rename": "^1.2.0",
+    "gulp-sourcemaps": "~1.5.1",
+    "gulp-uglify": "^0.3.1",
+    "jshint-stylish": "^0.4.0",
+    "karma": "^0.12.22",
+    "karma-chai": "^0.1.0",
+    "karma-chai-jquery": "^1.0.0",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5",
+    "karma-jquery": "^0.1.0",
+    "karma-mocha": "^0.1.8",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-sinon-chai": "^0.2.0",
+    "mocha": "^1.21.4",
+    "run-sequence": "^1.0.2",
+    "serve-static": "~1.8.1",
+    "sinon": "^1.10.3",
+    "sinon-chai": "^2.5.0",
+    "vinyl-buffer": "~1.0.0",
+    "vinyl-source-stream": "~1.1.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}

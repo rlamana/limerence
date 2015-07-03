@@ -1,0 +1,19 @@
+{
+  "name": "limerence-docs",
+  "version": "0.0.1",
+  "authors": [
+    "rlamana@gmail.com"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "prism": "~1.0.0"
+  }
+}

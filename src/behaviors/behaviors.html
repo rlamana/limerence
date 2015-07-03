@@ -1,0 +1,11 @@
+<script>
+    Lime.Behaviors = {
+        Focusable: {
+            created: function() {
+                if(!this.attributes.tabindex) {
+                    this.setAttribute('tabindex', 0);
+                }
+            }
+        }
+    };
+</script>

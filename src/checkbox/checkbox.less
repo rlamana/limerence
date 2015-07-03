@@ -1,0 +1,53 @@
+@import '../core/colors.less';
+
+:host {
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        background: #19CC95;
+        color: #ffffff;
+    }
+
+    .ui-checkbox {
+        display: flex;
+        flex-direction: row;
+
+        color: #14B886;
+        font-size: 12px;
+        font-weight: normal;
+        letter-spacing: 1px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+        .mark {
+            user-select: none;
+            cursor: pointer;
+
+            display: inline-block;
+            text-align: center;
+
+            padding: 0;
+            margin-right: 5px;
+
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+
+            box-sizing: border-box;
+
+            border: 2px solid @lime;
+            background-color: #ffffff;
+
+            transition: .1s ease-in-out;
+
+            svg {
+                fill: #14B886;
+
+                position: relative;
+                top: -4px;
+                left: 1px;
+            }
+        }
+    }
+}

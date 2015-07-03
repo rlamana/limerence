@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Limerence</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+
+        <link rel="import" href="bower_components/polymer/polymer.html">
+
+        <link href="styles/docs.css" rel="stylesheet" type="text/css" charset="utf-8">
+        <link href="bower_components/prism/themes/prism-okaidia.css" rel="stylesheet" type="text/css" charset="utf-8">
+    </head>
+
+    <body class="limerence-docs">
+        <link rel="import" href="../dist/lime.html">
+        <link rel="import" href="example.html">
+
+        <header class="main-header">
+            <img src="images/mark.png" />
+        </header>
+
+        <section class="main-block block">
+            <h1>Limerence UI</h1>
+            <div class="example">
+                <p>
+                    <strong>/ˈlimərəns/</strong> <em>noun, PSYCHOLOGY</em><br/>
+                    <br/>
+                    An involuntary interpersonal state that involves <strong>intrusive, obsessive</strong>, and <strong>compulsive thoughts, feelings</strong>, and <strong>behaviors</strong> that are contingent on perceived emotional reciprocation from the object of interest.
+                </p>
+            </div>
+        </section>
+
+        <section class="block">
+            <h1>Buttons</h1>
+
+            <docs-example title="Default Buttons" href="code/button/default.html"></docs-example>
+            <docs-example title="Loaders in Buttons" href="code/button/loaders.html"></docs-example>
+            <div class="attributes">
+                <h3>Attributes</h3>
+                <ul>
+                    <li>
+                        <div class="property">primary</div>
+                        <div class="type">Boolean</div>
+                        <div class="description">A description of the attribute</div>
+                        <div class="default">false</div>
+                    </li>
+
+                    <li>
+                        <div class="property">secondary</div>
+                        <div class="type">Boolean</div>
+                        <div class="description">A description of the attribute</div>
+                        <div class="default">true</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="block">
+            <h1>Checkbox</h1>
+            <docs-example title="Default Checkbox" href="code/checkbox/default.html"></docs-example>
+        </section>
+
+        <script>
+            // Code injector
+            var codes = document.querySelectorAll('link[rel="import"][type="code"]');
+            Array.prototype.forEach.call(codes, function(code) {
+                var content = document.createElement('div');
+                content.innerHTML = code.import.body.innerHTML;
+                code.parentElement.insertBefore(content, code);
+                code.remove();
+            });
+        </script>
+
+        <script type="text/javascript" src="bower_components/prism/prism.js"></script>
+    </body>
+</html>

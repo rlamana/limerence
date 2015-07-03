@@ -1,0 +1,56 @@
+<dom-module id="docs-example">
+    <style>
+        :host {
+            padding: 0px;
+        }
+
+        :host > section {
+            margin: 25px 0;
+
+            display: flex;
+            flex-direction: row;
+        }
+
+        :host > section > pre {
+            margin-left: 40px;
+            flex: 1;
+        }
+
+        :host .code {
+            min-width: 250px;
+        }
+    </style>
+
+    <template>
+        <header>
+            <h2>{{ title }}</h2>
+        </header>
+
+        <summary>
+            <content></content>
+        </summary>
+
+        <section>
+            <div class="code">
+                <link rel="import" type="code" href="{{ href }}">
+            </div>
+            <pre src="{{ href }}">{{ href }}</pre>
+            </div>
+        </section>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'docs-example',
+
+            properties: {
+                href: String
+            },
+
+            ready: function() {
+                var code, content;
+                this.$$('section pre').setAttribute('data-src', this.href);
+            }
+        });
+    </script>
+</dom-module>

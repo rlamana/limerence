@@ -1,0 +1,50 @@
+<dom-module id="ui-button">
+    <link rel="import" href="../behaviors/behaviors.html">
+    <link rel="import" type="css" href="button.css">
+
+    <template>
+        <content></content>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'ui-button',
+            behaviors: [ Lime.Behaviors.Focusable ],
+
+            properties: {
+                primary: {
+                    type: Boolean,
+                    value: false
+                },
+
+                secondary: {
+                    type: Boolean,
+                    value: true
+                },
+
+                pressed: {
+                    type: Boolean,
+                    value: false,
+                    reflectToAttribute: true
+                },
+            },
+
+            listeners: {
+                down: '_onDown',
+                up: '_onUp'
+            },
+
+            _onDown: function() {
+                this.pressed = true;
+            },
+
+            _onUp: function() {
+                this.pressed = false;
+                this.classList.add('ui-progress-state');
+            },
+
+            ready: function() {
+            }
+        });
+    </script>
+</dom-module>
