@@ -61,17 +61,6 @@
             <docs-example title="Default Checkbox" href="code/checkbox/default.html"></docs-example>
         </section>
 
-        <script>
-            // Code injector
-            var codes = document.querySelectorAll('link[rel="import"][type="code"]');
-            Array.prototype.forEach.call(codes, function(code) {
-                var content = document.createElement('div');
-                content.innerHTML = code.import.body.innerHTML;
-                code.parentElement.insertBefore(content, code);
-                code.remove();
-            });
-        </script>
-
         <script type="text/javascript" src="bower_components/prism/prism.js"></script>
     </body>
 </html>

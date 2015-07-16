@@ -30,7 +30,9 @@
     border: 2px solid @lime;
     background-color: transparent;
 
-    transition: color @fastTime ease-in-out, width @defaultTime ease-in-out;
+    //transition: , width @defaultTime ease-in-out;
+    width: 100%;
+    transition: width @defaultTime ease-in-out, color @fastTime ease-in-out;
 
     &:focus {
         outline: none;

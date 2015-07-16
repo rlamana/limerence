@@ -31,11 +31,8 @@
         </summary>
 
         <section>
-            <div class="code">
-                <link rel="import" type="code" href="{{ href }}">
-            </div>
-            <pre src="{{ href }}">{{ href }}</pre>
-            </div>
+            <div class="widgets"></div>
+            <pre src="[[ href ]]"></pre>
         </section>
     </template>
 
@@ -45,6 +42,18 @@
 
             properties: {
                 href: String
+            },
+
+            attached: function() {
+                var widgets = this.$$('.widgets');
+
+                var xhr = new XMLHttpRequest();
+                xhr.responseType = "text/html";
+                xhr.open('GET', this.href);
+                xhr.onload = function() {
+                    widgets.innerHTML = this.response;
+                };
+                xhr.send();
             },
 
             ready: function() {
