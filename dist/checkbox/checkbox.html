@@ -30,12 +30,15 @@
                     type: Boolean,
                     value: false,
                     reflectToAttribute: true,
-                    observer: 'checkedChanged'
+                    observer: '_checkedChanged'
                 },
             },
 
             toggle: function() {
                 this.checked = !this.checked;
+            },
+
+            _checkedChanged: function() {
             },
 
             ready: function() {

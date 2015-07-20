@@ -1,0 +1,52 @@
+<dom-module id="ui-progress-circular">
+    <link rel="import" type="css" href="circular.css">
+
+    <template>
+        <svg class="progress-circle" width="38" height="38">
+            <path d="m19,2c9.39227,0 17,7.60773 17,17c0,9.39227 -7.60773,17 -17,17c-9.39227,0 -17,-7.60773 -17,-17c0,-9.39227 7.60773,-17 17,-17z"
+            style="stroke-dasharray: 210px; stroke-dashoffset: 210px;">
+            </path>
+        </svg>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'ui-progress-circular',
+
+            properties: {
+                progress: {
+                    type: Number,
+                    value: 0,
+                    reflectToAttribute: true,
+                    observer: '_progressChange'
+                }
+            },
+
+            _progressChange: function(value) {
+                this.draw(value);
+            },
+
+            draw: function(value) {
+                const base = 200,
+                      total = 316
+                      path = this.$$('path');
+
+                path.style.strokeDasharray = (value*(total-base)/100) + base;
+            },
+
+            setProgress: function(value, delay) {
+                setTimeout(function() {
+                    this.progress = value;
+                }.bind(this), delay);
+            },
+
+            reset: function() {
+                this.progress = 0;
+            },
+
+            finish: function() {
+                this.progress = 100;
+            }
+        });
+    </script>
+</dom-module>

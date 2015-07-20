@@ -1,0 +1,18 @@
+@import '../core/colors.less';
+
+:host {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    path {
+        opacity: 1;
+        fill: none;
+
+        stroke: @lime;
+        stroke-width: 4;
+
+        transition: stroke-dasharray .5s ease-in-out;
+    }
+}

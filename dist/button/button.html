@@ -1,9 +1,16 @@
 <dom-module id="ui-button">
     <link rel="import" href="../behaviors/behaviors.html">
+    <link rel="import" href="../progress/circular.html">
     <link rel="import" type="css" href="button.css">
 
     <template>
-        <content></content>
+        <ui-button-frame>
+            <ui-button-content>
+                <content></content>
+            </ui-button-content>
+        </ui-button-frame>
+
+        <ui-progress-circular></ui-progress-circular>
     </template>
 
     <script>
@@ -27,6 +34,13 @@
                     value: false,
                     reflectToAttribute: true
                 },
+
+                progress: {
+                    type: Number,
+                    value: 0,
+                    reflectToAttribute: true,
+                    observer: '_progressChange'
+                }
             },
 
             listeners: {
@@ -34,16 +48,30 @@
                 up: '_onUp'
             },
 
+            // Event listeners
+
             _onDown: function() {
                 this.pressed = true;
             },
 
             _onUp: function() {
                 this.pressed = false;
-                this.classList.add('ui-progress-state');
+                //this.loading = !this.loading;
             },
 
-            ready: function() {
+            // Change listeners
+            _progressChange: function(value, oldvalue) {
+                var circular = this.$$('ui-progress-circular');
+
+
+                // SHOULD BE DONE BY PROGRESS EVENTS
+                if(value === 0 || (oldvalue < 100 && value >= 100)) {
+                    circular.reset();
+                    this.classList.remove('ui-progress-state');
+                } else {
+                    this.classList.add('ui-progress-state');
+                    circular.setProgress(value, 100);
+                }
             }
         });
     </script>

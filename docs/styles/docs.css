@@ -58,6 +58,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     line-height: 20px;
 }
 
+.limerence-docs a,
+.limerence-docs a:visited {
+    text-decoration: none;
+    color: #19CC95;
+}
+
 .limerence-docs pre[class*="language-"] {
     font-size: 14px;
     padding: 20px 25px;
