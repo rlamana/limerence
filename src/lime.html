@@ -3,6 +3,11 @@
         enqueue: function(func) {
             var params = Array.prototype.splice(arguments, 1);
             setTimeout.apply(undefined, [func, 0].concat(params));
+        },
+
+        delay: function(func, delay) {
+            var params = Array.prototype.splice(arguments, 2);
+            setTimeout.apply(undefined, [func, delay].concat(params));
         }
     };
 </script>
