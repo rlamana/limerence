@@ -1,4 +1,4 @@
-function start(button) {
+function run(button) {
     button.progress = 5;
     (function run() {
         if(button.state === 'progress') {

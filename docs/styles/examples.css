@@ -1,6 +1,13 @@
-.limerence-docs .buttons-default-example ui-button,
-.limerence-docs .buttons-default-example::shadow ui-button,
-.limerence-docs .buttons-loaders-example ui-button,
-.limerence-docs .buttons-loaders-example::shadow ui-button {
+.limerence-docs .one-button ui-button,
+.limerence-docs .one-button::shadow ui-button {
     margin: 5px 50px;
+}
+
+.limerence-docs .buttons-progress-example .widgets {
+    display: flex;
+    flex-direction: row;
+}
+
+.limerence-docs .buttons-progress-example ui-button {
+    margin: 0 20px;
 }

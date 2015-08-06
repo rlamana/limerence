@@ -68,12 +68,29 @@
             },
 
             _changeProgress: function(current, previous) {
-                this.toggleClass('ui-progress-state', current !== 0);
-                this._state = current !== 0 ? 'progress' : 'normal';
+                this.state = current !== 0 ? 'progress' : 'normal';
             },
 
             get state() {
                 return this._state;
+            },
+
+            set state(value) {
+                this.toggleClass('ui-progress-state', value === 'progress');
+                this._state = value;
+            },
+
+            wait: function() {
+                this.state = 'progress';
+                this.progress.infinite = true;
+            },
+
+            start: function() {
+                this.progress = 'progress';
+            },
+
+            end: function() {
+                this.state = 'normal';
             }
         });
     </script>
