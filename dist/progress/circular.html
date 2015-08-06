@@ -14,16 +14,29 @@
             is: 'ui-progress-circular',
 
             properties: {
-                progress: {
+                value: {
                     type: Number,
                     value: 0,
+                    notify: true,
                     reflectToAttribute: true,
-                    observer: '_progressChange'
+                    observer: '_changeValue'
                 }
             },
 
-            _progressChange: function(value) {
-                this.draw(value);
+            _changeValue: function(current, previous) {
+                this.toggleClass('animated', current !== 0);
+                this.draw(current);
+
+                if(current >= 100) {
+                    Lime.enqueue(function() {
+                        this.value = 0;
+                        this.fire('done');
+                    }.bind(this));
+                }
+
+                if(previous !== 0 && current > 0) {
+                    this.fire('start');
+                }
             },
 
             draw: function(value) {
@@ -32,20 +45,6 @@
                       path = this.$$('path');
 
                 path.style.strokeDasharray = (value*(total-base)/100) + base;
-            },
-
-            setProgress: function(value, delay) {
-                setTimeout(function() {
-                    this.progress = value;
-                }.bind(this), delay);
-            },
-
-            reset: function() {
-                this.progress = 0;
-            },
-
-            finish: function() {
-                this.progress = 100;
             }
         });
     </script>

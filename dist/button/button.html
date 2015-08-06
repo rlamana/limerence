@@ -10,7 +10,8 @@
             </ui-button-content>
         </ui-button-frame>
 
-        <ui-progress-circular></ui-progress-circular>
+        <ui-progress-circular id="progressBar" value="{{ progress }}">
+        </ui-progress-circular>
     </template>
 
     <script>
@@ -39,16 +40,19 @@
                     type: Number,
                     value: 0,
                     reflectToAttribute: true,
-                    observer: '_progressChange'
+                    observer: '_changeProgress',
+                    notify: true
                 }
             },
 
             listeners: {
                 down: '_onDown',
-                up: '_onUp'
+                up: '_onUp',
+
+                'progressBar.done': '_onProgressDone'
             },
 
-            // Event listeners
+            _state: 'normal',
 
             _onDown: function() {
                 this.pressed = true;
@@ -56,22 +60,20 @@
 
             _onUp: function() {
                 this.pressed = false;
-                //this.loading = !this.loading;
             },
 
-            // Change listeners
-            _progressChange: function(value, oldvalue) {
-                var circular = this.$$('ui-progress-circular');
+            _onProgressDone: function(event) {
+                event.stopImmediatePropagation();
+                this.fire('done');
+            },
 
+            _changeProgress: function(current, previous) {
+                this.toggleClass('ui-progress-state', current !== 0);
+                this._state = current !== 0 ? 'progress' : 'normal';
+            },
 
-                // SHOULD BE DONE BY PROGRESS EVENTS
-                if(value === 0 || (oldvalue < 100 && value >= 100)) {
-                    circular.reset();
-                    this.classList.remove('ui-progress-state');
-                } else {
-                    this.classList.add('ui-progress-state');
-                    circular.setProgress(value, 100);
-                }
+            get state() {
+                return this._state;
             }
         });
     </script>

@@ -49,6 +49,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     font-weight: 200;
 
     padding-bottom: 5px;
+    margin-top: 30px;
 }
 
 .limerence-docs p {
@@ -89,7 +90,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     font-size: 28px;
     font-weight: 300;
     letter-spacing: 0px;
-    padding: 0 5% 30px 0;
+    padding: 0 5% 10px 0;
     box-sizing: border-box;
 
     color: #19CC95;
@@ -110,12 +111,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     box-sizing: border-box;
 }
 
-.limerence-docs .attributes {
+.limerence-docs .table {
+    margin-bottom: 20px;
     padding: 30px 5%;
     background-color: rgba(25, 204, 149, 0.05)
 }
 
-.limerence-docs .attributes > h3 {
+.limerence-docs .table > h3 {
     font-size: 22px;
     font-weight: 300;
     letter-spacing: 0px;
@@ -123,12 +125,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     box-sizing: border-box;
 }
 
-.limerence-docs .attributes > ul > li {
+.limerence-docs .table > ul > li {
     display: flex;
     margin-bottom: 10px;
 }
 
-.limerence-docs .attributes > ul > li .property {
+.limerence-docs .table > ul > li .property {
     font-family: 'Inconsolata', 'Consolas', 'Source Code Pro', 'Monaco', 'Menlo', monospace;
     font-weight: bold;
 
@@ -137,24 +139,27 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-align: right;
 }
 
-.limerence-docs .attributes > ul > li .type {
+.limerence-docs .table > ul > li .type {
     font-family: 'Inconsolata', 'Consolas', 'Source Code Pro', 'Monaco', 'Menlo', monospace;
 
     margin-right: 30px;
+    min-width: 70px;
 }
 
-.limerence-docs .attributes > ul > li .description {
+.limerence-docs .table > ul > li .description {
     flex: 1;
 }
 
-.limerence-docs .attributes > ul > li .default::before {
+.limerence-docs .table > ul > li .default::before {
     content: 'Default:';
     font-size: 12px;
     margin-right: 5px;
 }
 
-.limerence-docs .attributes > ul > li .default {
-    margin-right: 30px;
+.limerence-docs .table > ul > li .default {
+    margin: 0 30px;
+    min-width: 80px;
+    text-align: right;
 }
 
 .limerence-docs .center {
@@ -164,5 +169,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .limerence-docs .w100 { max-width: 100px; }
 .limerence-docs .w200 { max-width: 200px; }
 
-.limerence-docs .results {
+docs-example {
+    margin-bottom: 50px;
 }

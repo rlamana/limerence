@@ -38,6 +38,7 @@
         background-color: transparent;
 
         width: 100%;
+        overflow: hidden;
         transition: width @defaultTime ease-in-out, color @fastTime ease-in-out;
     }
 
@@ -95,7 +96,7 @@
     }
 
     &.ui-progress-state {
-        // pointer-events: none;
+        pointer-events: none;
 
         ui-button-frame {
             width: @defaultHeight; // To match width & height

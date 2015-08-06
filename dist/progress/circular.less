@@ -12,7 +12,9 @@
 
         stroke: @lime;
         stroke-width: 4;
+    }
 
-        transition: stroke-dasharray .5s ease-in-out;
+    &.animated path {
+        transition: stroke-dasharray .2s ease-out;
     }
 }

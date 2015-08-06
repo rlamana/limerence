@@ -1,5 +1,9 @@
 <script>
     Lime = {
+        enqueue: function(func) {
+            var params = Array.prototype.splice(arguments, 1);
+            setTimeout.apply(undefined, [func, 0].concat(params));
+        }
     };
 </script>
 

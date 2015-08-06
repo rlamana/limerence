@@ -2,6 +2,7 @@
     <style>
         :host {
             padding: 0px;
+            display: block;
         }
 
         :host > section {
@@ -11,9 +12,12 @@
             flex-direction: row;
         }
 
-        :host > section > pre {
+        :host > section > .code {
             margin-left: 40px;
             flex: 1;
+
+            display: flex;
+            flex-direction: column;
         }
 
         :host > summary,
@@ -40,7 +44,13 @@
 
         <section>
             <div class="widgets"></div>
-            <pre src="[[ href ]]"></pre>
+
+            <div class="code">
+                <pre class="markup" src="[[ href ]]"></pre>
+                <pre class="script" src="[[ script ]]"></pre>
+            </div>
+
+            <script is="dom-if" if="{{ !!script }}" src="[[ script ]]"></script>
         </section>
     </template>
 
@@ -66,7 +76,11 @@
 
             ready: function() {
                 var code, content;
-                this.$$('section pre').setAttribute('data-src', this.href);
+                this.$$('section pre.markup').setAttribute('data-src', this.href);
+
+                if(this.script) {
+                    this.$$('section pre.script').setAttribute('data-src', this.script);
+                }
             }
         });
     </script>
