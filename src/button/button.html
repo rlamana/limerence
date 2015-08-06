@@ -82,14 +82,14 @@
 
             wait: function() {
                 this.state = 'progress';
-                this.progress.infinite = true;
+                this.$.progressBar.infinite = true;
             },
 
             start: function() {
-                this.progress = 'progress';
+                this.state = 'progress';
             },
 
-            end: function() {
+            stop: function() {
                 this.state = 'normal';
             }
         });

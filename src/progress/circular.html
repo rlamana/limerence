@@ -20,6 +20,14 @@
                     notify: true,
                     reflectToAttribute: true,
                     observer: '_changeValue'
+                },
+
+                infinite: {
+                    type: Boolean,
+                    value: false,
+                    notify: true,
+                    reflectToAttribute: true,
+                    observer: '_changeInfinite'
                 }
             },
 
@@ -37,6 +45,10 @@
                 if(previous !== 0 && current > 0) {
                     this.fire('start');
                 }
+            },
+
+            _changeInfinite: function(current) {
+                this.toggleClass('infinite', current);
             },
 
             draw: function(value) {
