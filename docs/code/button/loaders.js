@@ -1,9 +1,11 @@
 function run(button) {
-    button.progress = 5;
+    button.start();
+
     (function run() {
-        if(button.state === 'progress') {
-            button.progress += 5;
-            setTimeout(run, 200);
-        }
+        if(button.state !== 'progress')
+            return;
+
+        button.progress += 5;
+        setTimeout(run, 200);
     })();
 }
