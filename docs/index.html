@@ -11,6 +11,8 @@
         <link href="styles/docs.css" rel="stylesheet" type="text/css" charset="utf-8">
         <link href="styles/examples.css" rel="stylesheet" type="text/css" charset="utf-8">
         <link href="bower_components/prism/themes/prism-okaidia.css" rel="stylesheet" type="text/css" charset="utf-8">
+
+        <script type="text/javascript" src="bower_components/prism/prism.js"></script>
     </head>
 
     <body class="limerence-docs">
@@ -37,13 +39,13 @@
             <p>
                 Based on Colin Garvin's <a href="https://dribbble.com/shots/1426764-Submit-Button">submit button</a> and Mary Lou's <a href="http://tympanus.net/codrops/2014/04/09/how-to-create-a-circular-progress-button/">codrops article</a> and implementation.
             </p>
-            <docs-example title="Default Buttons" href="code/button/default.html" class="buttons-default-example one-button"></docs-example>
+            <docs-example head="Default Buttons" href="code/button/default.html" class="buttons-default-example one-button"></docs-example>
 
-            <docs-example title="Wait" href="code/button/wait.html" class="buttons-infinite-example one-button"></docs-example>
+            <docs-example head="Wait" href="code/button/wait.html" class="buttons-infinite-example one-button"></docs-example>
 
-            <docs-example title="Progress" href="code/button/progress.html" class="buttons-progress-example"></docs-example>
+            <docs-example head="Progress" href="code/button/progress.html" class="buttons-progress-example"></docs-example>
 
-            <docs-example title="Progress Example" href="code/button/loaders.html" script="code/button/loaders.js" class="buttons-loaders-example one-button"></docs-example>
+            <docs-example head="Progress Example" href="code/button/loaders.html" script="code/button/loaders.js" class="buttons-loaders-example one-button"></docs-example>
 
             <div class="table">
                 <h3>Attributes</h3>
@@ -51,14 +53,14 @@
                     <li>
                         <div class="property">primary</div>
                         <div class="type">Boolean</div>
-                        <div class="description">A description of the attribute</div>
+                        <div class="description">Identifies the button as the primary action</div>
                         <div class="default">false</div>
                     </li>
 
                     <li>
                         <div class="property">secondary</div>
                         <div class="type">Boolean</div>
-                        <div class="description">A description of the attribute</div>
+                        <div class="description">Identifies the button as a standard action button</div>
                         <div class="default">true</div>
                     </li>
 
@@ -98,7 +100,44 @@
                 <ul>
                     <li>
                         <div class="property">done</div>
-                        <div class="description">Triggered when the progress bar is completed or the wait stops.</div>
+                        <div class="description">Fired when the progress bar is completed or the wait stops.</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="block">
+            <h1>Input</h1>
+            <docs-example href="code/input/default.html" class="input-example"></docs-example>
+
+            <div class="table">
+                <h3>Attributes</h3>
+                <ul>
+                    <li>
+                        <div class="property">type</div>
+                        <div class="type">String</div>
+                        <div class="description">Specifies the type of input element to display: 'text', 'password', 'email'</div>
+                        <div class="default">text</div>
+                    </li>
+
+                    <li>
+                        <div class="property">value</div>
+                        <div class="type">String</div>
+                        <div class="description">Input's value</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="table">
+                <h3>Methods</h3>
+                <ul>
+                    <li>
+                        <div class="property">focus()</div>
+                        <div class="description">Gives focus to the input element</div>
+                    </li>
+                    <li>
+                        <div class="property">blur()</div>
+                        <div class="description">Removes focus from the input element</div>
                     </li>
                 </ul>
             </div>
@@ -106,9 +145,79 @@
 
         <section class="block">
             <h1>Checkbox</h1>
-            <docs-example title="Default Checkbox" href="code/checkbox/default.html"></docs-example>
+            <docs-example href="code/checkbox/default.html" class="checkbox-example questionnaire"></docs-example>
+
+            <div class="table">
+                <h3>Attributes</h3>
+                <ul>
+                    <li>
+                        <div class="property">checked</div>
+                        <div class="type">Boolean</div>
+                        <div class="description">Gets or sets the state, 'true' is checked and 'false' is unchecked.</div>
+                        <div class="default">false</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="table">
+                <h3>Methods</h3>
+                <ul>
+                    <li>
+                        <div class="property">toggle()</div>
+                        <div class="description">Toggles checked state</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="table">
+                <h3>Events</h3>
+                <ul>
+                    <li>
+                        <div class="property">changed</div>
+                        <div class="description">Fired when the checked value changes</div>
+                    </li>
+                </ul>
+            </div>
         </section>
 
-        <script type="text/javascript" src="bower_components/prism/prism.js"></script>
+        <section class="block">
+            <h1>Radiobutton</h1>
+
+            <docs-example href="code/radiobutton/default.html" class="radiobutton-example questionnaire"></docs-example>
+
+            <docs-example head="Group of Radiobuttons" href="code/radiobutton/group.html" class="radiobutton-group-example"></docs-example>
+
+            <div class="table">
+                <h3>Attributes</h3>
+                <ul>
+                    <li>
+                        <div class="property">checked</div>
+                        <div class="type">Boolean</div>
+                        <div class="description">Gets or sets the state, 'true' is checked and 'false' is unchecked.</div>
+                        <div class="default">false</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="table">
+                <h3>Methods</h3>
+                <ul>
+                    <li>
+                        <div class="property">toggle()</div>
+                        <div class="description">Toggles checked state</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="table">
+                <h3>Events</h3>
+                <ul>
+                    <li>
+                        <div class="property">changed</div>
+                        <div class="description">Fired when the checked value changes</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </body>
 </html>

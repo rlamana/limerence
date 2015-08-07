@@ -1,7 +1,8 @@
-.limerence-docs .one-button ui-button,
-.limerence-docs .one-button::shadow ui-button {
+.limerence-docs .one-button ui-button {
     margin: 5px 50px;
 }
+
+
 
 .limerence-docs .buttons-progress-example .widgets {
     display: flex;
@@ -10,4 +11,36 @@
 
 .limerence-docs .buttons-progress-example ui-button {
     margin: 0 20px;
+}
+
+
+
+.limerence-docs .questionnaire .widgets {
+    display: flex;
+    flex-direction: column;
+}
+
+.limerence-docs .questionnaire ui-checkbox:first-child {
+    margin-top: 10px;
+}
+
+.limerence-docs .questionnaire ui-checkbox {
+    margin-bottom: 5px;
+}
+
+
+
+.limerence-docs .radiobutton-group-example ui-radiobutton {
+    margin-right: 5px;
+}
+
+
+
+.limerence-docs .input-example .widgets {
+    display: flex;
+    flex-direction: column;
+}
+
+.limerence-docs .input-example ui-input {
+    margin: 5px 10px;
 }

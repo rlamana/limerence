@@ -44,7 +44,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 .limerence-docs h2 {
-    font-size: 30px;
+    font-size: 26px;
     letter-spacing: 0px;
     font-weight: 200;
 
@@ -65,16 +65,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     color: #19CC95;
 }
 
-.limerence-docs pre[class*="language-"] {
+.limerence-docs code[class*="language-"] {
     font-size: 14px;
-    padding: 20px 25px;
     margin-top: 0;
     max-height: 400px;
 
     border-radius: 3px 0 0 3px;
 }
 
-.limerence-docs pre[class*="language-"] .token.tag {
+.limerence-docs code[class*="language-"] .token.tag {
     color: #19CC95;
 }
 

@@ -12,20 +12,24 @@
             flex-direction: row;
         }
 
-        :host > section > .code {
-            margin-left: 40px;
-            flex: 1;
-
-            display: flex;
-            flex-direction: column;
-        }
-
         :host > summary,
         :host > summary p {
             font-size: 15px;
             font-weight: 300;
             color: rgb(47, 47, 47);
             line-height: 20px;
+        }
+
+        :host:not([head]) h2 {
+            display: none;
+        }
+
+        .code {
+            margin-left: 40px;
+            flex: 1;
+
+            display: flex;
+            flex-direction: column;
         }
 
         .widgets {
@@ -35,7 +39,7 @@
 
     <template>
         <header>
-            <h2>{{ title }}</h2>
+            <h2>{{ head }}</h2>
         </header>
 
         <summary>
@@ -43,14 +47,12 @@
         </summary>
 
         <section>
-            <div class="widgets"></div>
+            <div id="widgets" class="widgets"></div>
 
             <div class="code">
-                <pre class="markup" src="[[ href ]]"></pre>
-                <pre class="script" src="[[ script ]]"></pre>
+                <pre><code id="markup" class="language-markup"></code></pre>
+                <pre><code id="script" class="language-javascript"></code></pre>
             </div>
-
-            <script is="dom-if" if="{{ !!script }}" src="[[ script ]]"></script>
         </section>
     </template>
 
@@ -59,27 +61,47 @@
             is: 'docs-example',
 
             properties: {
-                href: String
+                href: String,
+                script: String
             },
 
-            attached: function() {
-                var widgets = this.$$('.widgets');
+            _get: function(url, callback) {
+                var self = this,
+                    xhr = new XMLHttpRequest();
 
-                var xhr = new XMLHttpRequest();
-                xhr.open('GET', this.href);
+                xhr.open('GET', url);
                 xhr.onload = function() {
-                    widgets.innerHTML = this.response;
+                    callback.call(self, this.response);
                 };
                 xhr.send();
             },
 
-            ready: function() {
-                var code, content;
-                this.$$('section pre.markup').setAttribute('data-src', this.href);
+            attached: function() {
+                this._get(this.href, function(response) {
+                    this.$.widgets.innerHTML = response;
+                    this.$.markup.textContent = response;
+                    Prism.highlightElement(this.$.markup);
+                }.bind(this));
 
-                if(this.script) {
-                    this.$$('section pre.script').setAttribute('data-src', this.script);
+                if(!!this.script) {
+                    this._get(this.script, function(response) {
+                        this.$.script.textContent = response;
+                        Prism.highlightElement(this.$.script);
+                    }.bind(this));
+
+                    // Script value should be bound in the template but this is the
+                    // only way to make it work in Firefox
+                    script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.src = this.script;
+                    this.appendChild(script);
+                } else {
+                    this.$.script.parentElement.style.display = 'none';
                 }
+
+                this.$.widgets.addEventListener('dom-change', function() {
+                    debugger;
+                }, false);
             }
         });
     </script>

@@ -14,12 +14,15 @@
     display: block;
     position: relative;
 
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
     ui-button-frame {
-        display: block;
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         margin: 0 auto;
-        padding: 10px 15px;
 
         height: @defaultHeight;
         border-radius: @radius;
@@ -34,7 +37,7 @@
         letter-spacing: 0;
 
         color: @lime;
-        border: 2px solid @lime;
+        border: 1px solid @lime;
         background-color: transparent;
 
         width: 100%;
@@ -102,7 +105,7 @@
             width: @defaultHeight; // To match width & height
             background-color: transparent;
 
-            border-color: #ddd;
+            border-color: @greyLight;
             border-width: 4px;
         }
 
@@ -117,7 +120,7 @@
         &:hover {
             ui-button-frame {
                 background-color: transparent;
-                border-color: #ddd;
+                border-color: @greyLight;
             }
         }
     }

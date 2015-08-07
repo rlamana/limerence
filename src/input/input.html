@@ -1,0 +1,77 @@
+<dom-module id="ui-input">
+    <link rel="import" href="../behaviors/behaviors.html">
+    <link rel="import" type="css" href="input.css">
+
+    <template>
+        <ui-input-frame>
+            <input id="input" type="{{type}}" />
+            <span class="label">{{label}}</span>
+        </ui-input-frame>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'ui-input',
+            behaviors: [
+                Lime.Behaviors.AllowActive,
+                Lime.Behaviors.AllowDisabled
+            ],
+
+            listeners: {
+                'up': '_onUp',
+                'input.focus': '_onInputFocus',
+                'input.blur': '_onInputBlur',
+                'input.keydown': '_onInputChange'
+            },
+
+            properties: {
+                type: {
+                    type: String,
+                    value: 'text',
+                    reflectToAttribute: true,
+                    notify: true
+                },
+
+                value: {
+                    type: String,
+                    value: '',
+                    observer: '_changeValue'
+                }
+            },
+
+            _focus: false,
+
+            _onUp: function() {
+                this.focus();
+            },
+
+            _onInputFocus: function() {
+                this._focus = true;
+                this.classList.add('ui-focus');
+            },
+
+            _onInputBlur: function() {
+                this._focus = false;
+                this.classList.remove('ui-focus');
+            },
+
+            _onInputChange: function() {
+                this.value = this.$.input.value;
+            },
+
+            _changeValue: function(value) {
+                // This won't trigger '_onInputChange'
+                this.$.input.value = value;
+                this.toggleClass('ui-filled', value !== '');
+            },
+
+            focus: function() {
+                this.$.input.focus();
+            },
+
+            blur: function() {
+                this.$.input.blur();
+            }
+        });
+    </script>
+</dom-module>

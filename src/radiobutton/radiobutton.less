@@ -3,7 +3,7 @@
 :host {
     display: inline-block;
 
-    ui-checkbox-frame {
+    ui-radiobutton-frame {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -19,11 +19,13 @@
     &:hover {
         .mark {
             border-color: @grey;
-            svg {
+
+            &::after {
                 opacity: 1;
-                fill: @grey;
+                background-color: @grey;
             }
         }
+
 
         .label {
             border-bottom: 1px solid @grey;
@@ -32,9 +34,9 @@
 
     &[checked] {
         .mark {
-            svg {
+            &::after {
                 opacity: 1;
-                fill: @lime;
+                background-color: @lime;
             }
         }
 
@@ -51,6 +53,7 @@
 
     .mark {
         display: inline-block;
+        position: relative;
 
         user-select: none;
         cursor: pointer;
@@ -67,20 +70,22 @@
         box-sizing: border-box;
 
         border: 1px solid @grey;
+        border-radius: 20px;
         background-color: #ffffff;
 
         transition: all .1s ease-in-out;
 
-        svg {
-            opacity: .4;
-
-            fill: @grey;
-
-            position: relative;
-            top: -1px;
-            left: 0;
-
-            transition: fill .1s ease-in-out;
+        &::after {
+            opacity: .3;
+            content: "";
+            background-color: @grey;
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            border-radius: 20px;
         }
     }
+
 }
