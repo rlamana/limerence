@@ -20,26 +20,27 @@ var connect = require('connect'),
     serveStatic = require('serve-static'),
     colors = require('colors');
 
+var vulcanize = require('gulp-vulcanize'),
+    htmlmin = require('gulp-html-minifier');
+
 
 // Paths
 
 var rootDirectory = path.resolve('./'),
     sourceDirectory = path.join(rootDirectory, './src');
 
-var buildDirectory = './dist';
-
-gulp.task('process-all', function (done) {
-    runSequence('build', done);
-});
+var buildDirectory = './build',
+    distDirectory = './dist';
 
 
 gulp.task('watch', function () {
-    // Watch JavaScript files
-    gulp.watch([
-        sourceDirectory + '/**/*.js',
-        sourceDirectory + '/**/*.html',
-        sourceDirectory + '/**/*.less'
-    ], ['process-all']);
+    runSequence('process-all', function() {
+        gulp.watch([
+            sourceDirectory + '/**/*.js',
+            sourceDirectory + '/**/*.html',
+            sourceDirectory + '/**/*.less'
+        ], ['process-all']);
+    });
 });
 
 
@@ -50,7 +51,7 @@ gulp.task('copy', function () {
 
 
 gulp.task('clean', function (done) {
-    del([buildDirectory], done);
+    del([buildDirectory, distDirectory], done);
 });
 
 
@@ -70,8 +71,27 @@ gulp.task('less', function() {
 });
 
 
-gulp.task('build', function (done) {
-    runSequence('clean', 'copy', 'less', done);
+gulp.task('vulcanize', function () {
+    return gulp.src(buildDirectory + '/lime.html')
+        .pipe(vulcanize({
+            excludes: [],
+            stripExcludes: false,
+            inlineCss: true,
+            inlineScripts: true
+        }))
+        .pipe(gulp.dest(distDirectory));
+});
+
+
+gulp.task('minify', function() {
+    return gulp.src(distDirectory + '/lime.html')
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            minifyJS: true,
+            minifyCSS: true
+        }))
+        .pipe(rename('lime.min.html'))
+        .pipe(gulp.dest(distDirectory));
 });
 
 
@@ -83,6 +103,16 @@ gulp.task('serve', function (done) {
 });
 
 
+gulp.task('build', function (done) {
+    runSequence('clean', 'copy', 'less', 'vulcanize', 'minify', done);
+});
+
+
+gulp.task('process-all', function (done) {
+    runSequence('build', done);
+});
+
+
 gulp.task('default', function () {
-    runSequence('process-all', 'watch');
+    runSequence('process-all');
 });

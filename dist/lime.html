@@ -1,4 +1,4 @@
-<script>
+<html><head><meta charset="UTF-8"><script>
     Lime = {
         enqueue: function(func) {
             var params = Array.prototype.splice(arguments, 1);
@@ -12,7 +12,436 @@
     };
 </script>
 
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300,200,100' rel='stylesheet' type='text/css'>
+<link href="http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300,200,100" rel="stylesheet" type="text/css">
 
-<link rel="import" href="button/button.html">
-<link rel="import" href="checkbox/checkbox.html">
+<script>
+    Lime.Behaviors = {
+        AllowActive: {
+            properties: {
+                active: {
+                    type: Boolean,
+                    value: false,
+                    reflectToAttribute: true
+                }
+            },
+
+            listeners: {
+                up: '_onUp',
+                down: '_onDown'
+            },
+
+             _onDown: function() {
+                this.active = true;
+            },
+
+            _onUp: function() {
+                this.active = false;
+            },
+
+        },
+
+        AllowFocus: {
+            created: function() {
+                if(!this.attributes.tabindex) {
+                    this.setAttribute('tabindex', 0);
+                }
+            }
+        },
+
+        AllowDisabled: {
+            properties: {
+                disabled: {
+                    type: Boolean,
+                    value: false,
+                    reflectToAttribute: true
+                }
+            }
+        }
+    };
+</script></head><body><div hidden="" by-vulcanize=""><dom-module id="ui-progress-circular" assetpath="progress/">
+    <style>
+:host {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+:host path {
+  opacity: 1;
+  fill: none;
+  stroke: #19cc95;
+  stroke-width: 4;
+}
+:host.animated path {
+  transition: stroke-dasharray 0.2s ease-out;
+}
+@-webkit-keyframes spin {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+:host.infinite path {
+  opacity: 0;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-animation: spin .6s linear infinite;
+  animation: spin .6s linear infinite;
+  stroke-dasharray: 250 !important;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInByb2dyZXNzL2NpcmN1bGFyLmxlc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUE7RUFDSSxrQkFBQTtFQUNBLE1BQUE7RUFDQSxTQUFBO0VBQ0EsV0FBVyxnQkFBWDs7QUFKSixLQU1JO0VBQ0ksVUFBQTtFQUNBLFVBQUE7RUFFQSxlQUFBO0VBQ0EsZUFBQTs7QUFHSixLQUFDLFNBQ0c7RUFDSSwwQ0FBQTs7QUFLSjtFQUNJO0lBQ0ksVUFBQTs7RUFHSjtJQUNJLFVBQUE7SUFDQSxXQUFXLGNBQVg7OztBQVJaLEtBQUMsU0FZRztFQUNJLFVBQUE7RUFDQSx5QkFBQTtFQUNBLG1DQUFBO0VBRUEsZ0NBQUEiLCJmaWxlIjoicHJvZ3Jlc3MvY2lyY3VsYXIuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAnLi4vY29yZS9jb2xvcnMubGVzcyc7XG5cbjpob3N0IHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgdG9wOiAwO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoLTUwJSk7XG5cbiAgICBwYXRoIHtcbiAgICAgICAgb3BhY2l0eTogMTtcbiAgICAgICAgZmlsbDogbm9uZTtcblxuICAgICAgICBzdHJva2U6IEBsaW1lO1xuICAgICAgICBzdHJva2Utd2lkdGg6IDQ7XG4gICAgfVxuXG4gICAgJi5hbmltYXRlZCB7XG4gICAgICAgIHBhdGgge1xuICAgICAgICAgICAgdHJhbnNpdGlvbjogc3Ryb2tlLWRhc2hhcnJheSAuMnMgZWFzZS1vdXQ7XG4gICAgICAgIH1cbiAgICB9XG5cbiAgICAmLmluZmluaXRlIHtcbiAgICAgICAgQGtleWZyYW1lcyBzcGluIHtcbiAgICAgICAgICAgIDAlIHtcbiAgICAgICAgICAgICAgICBvcGFjaXR5OiAxO1xuICAgICAgICAgICAgfVxuXG4gICAgICAgICAgICAxMDAlIHtcbiAgICAgICAgICAgICAgICBvcGFjaXR5OiAxO1xuICAgICAgICAgICAgICAgIHRyYW5zZm9ybTogcm90YXRlKDM2MGRlZyk7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cblxuICAgICAgICBwYXRoIHtcbiAgICAgICAgICAgIG9wYWNpdHk6IDA7XG4gICAgICAgICAgICB0cmFuc2Zvcm0tb3JpZ2luOiA1MCUgNTAlO1xuICAgICAgICAgICAgYW5pbWF0aW9uOiBzcGluIC42cyBsaW5lYXIgaW5maW5pdGU7XG5cbiAgICAgICAgICAgIHN0cm9rZS1kYXNoYXJyYXk6IDI1MCAhaW1wb3J0YW50O1xuICAgICAgICB9XG4gICAgfVxufSJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ== */
+</style>
+
+    <template>
+        <svg class="progress-circle" width="38" height="38">
+            <path d="m19,2c9.39227,0 17,7.60773 17,17c0,9.39227 -7.60773,17 -17,17c-9.39227,0 -17,-7.60773 -17,-17c0,-9.39227 7.60773,-17 17,-17z" style="stroke-dasharray: 210px; stroke-dashoffset: 210px;">
+            </path>
+        </svg>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'ui-progress-circular',
+
+            properties: {
+                value: {
+                    type: Number,
+                    value: 0,
+                    notify: true,
+                    reflectToAttribute: true,
+                    observer: '_changeValue'
+                },
+
+                infinite: {
+                    type: Boolean,
+                    value: false,
+                    notify: true,
+                    reflectToAttribute: true,
+                    observer: '_changeInfinite'
+                }
+            },
+
+            _changeValue: function(current, previous) {
+                this.toggleClass('animated', current !== 0);
+                this.draw(current);
+
+                if(current >= 100) {
+                    Lime.enqueue(function() {
+                        this.value = 0;
+                        this.fire('done');
+                    }.bind(this));
+                }
+
+                if(previous !== 0 && current > 0) {
+                    this.fire('start');
+                }
+            },
+
+            _changeInfinite: function(current) {
+                this.toggleClass('infinite', current);
+            },
+
+            draw: function(value) {
+                const base = 200,
+                      total = 316
+                      path = this.$$('path');
+
+                path.style.strokeDasharray = (value*(total-base)/100) + base;
+            }
+        });
+    </script>
+</dom-module><dom-module id="ui-button" assetpath="button/">
+    <style>
+:host {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+:host ui-button-frame {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 15px;
+  height: 38px;
+  border-radius: 40px;
+  box-sizing: border-box;
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  color: #19cc95;
+  border: 2px solid #19cc95;
+  background-color: transparent;
+  width: 100%;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out, color 0.08s ease-in-out;
+}
+:host ui-button-content {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+:host ui-progress-circular {
+  opacity: 0;
+}
+:host:focus {
+  outline: none;
+}
+:host:focus ui-button-frame {
+  outline: none;
+}
+:host:hover ui-button-frame {
+  background: #5ad4af;
+  border-color: #5ad4af;
+  color: #ffffff;
+}
+:host[active] ui-button-frame {
+  background-color: #049e6f;
+  border-color: #049e6f;
+}
+:host[primary] ui-button-frame {
+  background-color: #19cc95;
+  color: #fff;
+}
+:host[primary]:hover ui-button-frame {
+  background-color: #5ad4af;
+  border-color: #5ad4af;
+}
+:host[primary][active] ui-button-frame {
+  background-color: #049e6f;
+  border-color: #049e6f;
+}
+:host.ui-progress-state {
+  pointer-events: none;
+}
+:host.ui-progress-state ui-button-frame {
+  width: 38px;
+  background-color: transparent;
+  border-color: #ddd;
+  border-width: 4px;
+}
+:host.ui-progress-state ui-button-content {
+  opacity: 0;
+}
+:host.ui-progress-state ui-progress-circular {
+  opacity: 1;
+}
+:host.ui-progress-state:hover ui-button-frame {
+  background-color: transparent;
+  border-color: #ddd;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJ1dHRvbi9idXR0b24ubGVzcyIsImNvcmUvZm9udC5sZXNzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdBO0VBT0ksaUJBQUE7RUFDQSxlQUFBO0VBRUEsY0FBQTtFQUNBLGtCQUFBOztBQVhKLEtBYUk7RUFDSSxjQUFBO0VBQ0Esa0JBQUE7RUFFQSxjQUFBO0VBQ0Esa0JBQUE7RUFFQSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSxzQkFBQTtFQUVBLGFDM0JELFdBQVcsOENEMkJWO0VBQ0EsZUFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0JBQUE7RUFFQSx5QkFBQTtFQUNBLGlCQUFBO0VBRUEsY0FBQTtFQUNBLHlCQUFBO0VBQ0EsNkJBQUE7RUFFQSxXQUFBO0VBQ0EsZ0JBQUE7RUFDQSwyREFBQTs7QUF0Q1IsS0F5Q0k7RUFDSSxVQUFBO0VBQ0Esb0NBQUE7O0FBM0NSLEtBOENJO0VBQ0ksVUFBQTs7QUFHSixLQUFDO0VBQ0csYUFBQTs7QUFESixLQUFDLE1BR0c7RUFDSSxhQUFBOztBQUlSLEtBQUMsTUFDRztFQUNJLG1CQUFBO0VBQ0EscUJBQUE7RUFDQSxjQUFBOztBQUlSLEtBQUMsUUFDRztFQUNJLHlCQUFBO0VBQ0EscUJBQUE7O0FBSVIsS0FBQyxTQUNHO0VBQ0kseUJBQUE7RUFDQSxXQUFBOztBQUdKLEtBTkgsU0FNSSxNQUNHO0VBQ0kseUJBQUE7RUFDQSxxQkFBQTs7QUFJUixLQWJILFNBYUksUUFDRztFQUNJLHlCQUFBO0VBQ0EscUJBQUE7O0FBS1osS0FBQztFQUNHLG9CQUFBOztBQURKLEtBQUMsa0JBR0c7RUFDSSxXQUFBO0VBQ0EsNkJBQUE7RUFFQSxrQkFBQTtFQUNBLGlCQUFBOztBQVJSLEtBQUMsa0JBV0c7RUFDSSxVQUFBOztBQVpSLEtBQUMsa0JBZUc7RUFDSSxVQUFBOztBQUdKLEtBbkJILGtCQW1CSSxNQUNHO0VBQ0ksNkJBQUE7RUFDQSxrQkFBQSIsImZpbGUiOiJidXR0b24vYnV0dG9uLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgJy4uL2NvcmUvY29sb3JzLmxlc3MnO1xuQGltcG9ydCAnLi4vY29yZS9mb250Lmxlc3MnO1xuXG46aG9zdCB7XG4gICAgQGZhc3RUaW1lOiAuMDhzO1xuICAgIEBkZWZhdWx0VGltZTogLjNzO1xuXG4gICAgQHJhZGl1czogNDBweDtcbiAgICBAZGVmYXVsdEhlaWdodDogMzhweDtcblxuICAgIHVzZXItc2VsZWN0OiBub25lO1xuICAgIGN1cnNvcjogcG9pbnRlcjtcblxuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcblxuICAgIHVpLWJ1dHRvbi1mcmFtZSB7XG4gICAgICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG5cbiAgICAgICAgbWFyZ2luOiAwIGF1dG87XG4gICAgICAgIHBhZGRpbmc6IDEwcHggMTVweDtcblxuICAgICAgICBoZWlnaHQ6IEBkZWZhdWx0SGVpZ2h0O1xuICAgICAgICBib3JkZXItcmFkaXVzOiBAcmFkaXVzO1xuICAgICAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuXG4gICAgICAgIGZvbnQtZmFtaWx5OiBAZm9udDtcbiAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICBsaW5lLWhlaWdodDogMTRweDtcbiAgICAgICAgZm9udC13ZWlnaHQ6IDYwMDtcblxuICAgICAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICAgICAgICBsZXR0ZXItc3BhY2luZzogMDtcblxuICAgICAgICBjb2xvcjogQGxpbWU7XG4gICAgICAgIGJvcmRlcjogMnB4IHNvbGlkIEBsaW1lO1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcblxuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICAgICAgdHJhbnNpdGlvbjogd2lkdGggQGRlZmF1bHRUaW1lIGVhc2UtaW4tb3V0LCBjb2xvciBAZmFzdFRpbWUgZWFzZS1pbi1vdXQ7XG4gICAgfVxuXG4gICAgdWktYnV0dG9uLWNvbnRlbnQge1xuICAgICAgICBvcGFjaXR5OiAxO1xuICAgICAgICB0cmFuc2l0aW9uOiBvcGFjaXR5IEBkZWZhdWx0VGltZSBlYXNlLWluLW91dDtcbiAgICB9XG5cbiAgICB1aS1wcm9ncmVzcy1jaXJjdWxhciB7XG4gICAgICAgIG9wYWNpdHk6IDA7XG4gICAgfVxuXG4gICAgJjpmb2N1cyB7XG4gICAgICAgIG91dGxpbmU6IG5vbmU7XG5cbiAgICAgICAgdWktYnV0dG9uLWZyYW1lIHtcbiAgICAgICAgICAgIG91dGxpbmU6IG5vbmU7XG4gICAgICAgIH1cbiAgICB9XG5cbiAgICAmOmhvdmVyIHtcbiAgICAgICAgdWktYnV0dG9uLWZyYW1lIHtcbiAgICAgICAgICAgIGJhY2tncm91bmQ6IEBsaW1lTGlnaHQ7XG4gICAgICAgICAgICBib3JkZXItY29sb3I6IEBsaW1lTGlnaHQ7XG4gICAgICAgICAgICBjb2xvcjogI2ZmZmZmZjtcbiAgICAgICAgfVxuICAgIH1cblxuICAgICZbYWN0aXZlXSB7XG4gICAgICAgIHVpLWJ1dHRvbi1mcmFtZSB7XG4gICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiBAbGltZURhcms7XG4gICAgICAgICAgICBib3JkZXItY29sb3I6IEBsaW1lRGFyaztcbiAgICAgICAgfVxuICAgIH1cblxuICAgICZbcHJpbWFyeV0ge1xuICAgICAgICB1aS1idXR0b24tZnJhbWUge1xuICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogQGxpbWU7XG4gICAgICAgICAgICBjb2xvcjogI2ZmZjtcbiAgICAgICAgfVxuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgICAgdWktYnV0dG9uLWZyYW1lIHtcbiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiBAbGltZUxpZ2h0O1xuICAgICAgICAgICAgICAgIGJvcmRlci1jb2xvcjogQGxpbWVMaWdodDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuXG4gICAgICAgICZbYWN0aXZlXSB7XG4gICAgICAgICAgICB1aS1idXR0b24tZnJhbWUge1xuICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6IEBsaW1lRGFyaztcbiAgICAgICAgICAgICAgICBib3JkZXItY29sb3I6IEBsaW1lRGFyaztcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgIH1cblxuICAgICYudWktcHJvZ3Jlc3Mtc3RhdGUge1xuICAgICAgICBwb2ludGVyLWV2ZW50czogbm9uZTtcblxuICAgICAgICB1aS1idXR0b24tZnJhbWUge1xuICAgICAgICAgICAgd2lkdGg6IEBkZWZhdWx0SGVpZ2h0OyAvLyBUbyBtYXRjaCB3aWR0aCAmIGhlaWdodFxuICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG5cbiAgICAgICAgICAgIGJvcmRlci1jb2xvcjogI2RkZDtcbiAgICAgICAgICAgIGJvcmRlci13aWR0aDogNHB4O1xuICAgICAgICB9XG5cbiAgICAgICAgdWktYnV0dG9uLWNvbnRlbnQge1xuICAgICAgICAgICAgb3BhY2l0eTogMDtcbiAgICAgICAgfVxuXG4gICAgICAgIHVpLXByb2dyZXNzLWNpcmN1bGFyIHtcbiAgICAgICAgICAgIG9wYWNpdHk6IDE7XG4gICAgICAgIH1cblxuICAgICAgICAmOmhvdmVyIHtcbiAgICAgICAgICAgIHVpLWJ1dHRvbi1mcmFtZSB7XG4gICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gICAgICAgICAgICAgICAgYm9yZGVyLWNvbG9yOiAjZGRkO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgfVxufSIsIkBmb250OiAnUmFsZXdheScsICdIZWx2ZXRpY2EgTmV1ZScsIEhlbHZldGljYSwgQXJpYWwsIHNhbnMtc2VyaWY7XG5AZm9udENvZGU6ICdJbmNvbnNvbGF0YScsICdDb25zb2xhcycsICdTb3VyY2UgQ29kZSBQcm8nLCAnTW9uYWNvJywgJ01lbmxvJywgbW9ub3NwYWNlOyJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ== */
+</style>
+
+    <template>
+        <ui-button-frame>
+            <ui-button-content>
+                <content></content>
+            </ui-button-content>
+        </ui-button-frame>
+
+        <ui-progress-circular id="circularProgress" value="{{ progress }}">
+        </ui-progress-circular>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'ui-button',
+            behaviors: [
+                Lime.Behaviors.AllowActive,
+                Lime.Behaviors.AllowFocus,
+                Lime.Behaviors.AllowDisabled
+            ],
+
+            properties: {
+                primary: {
+                    type: Boolean,
+                    value: false
+                },
+
+                secondary: {
+                    type: Boolean,
+                    value: true
+                },
+
+                progress: {
+                    type: Number,
+                    value: 0,
+                    reflectToAttribute: true,
+                    observer: '_changeProgress',
+                    notify: true
+                }
+            },
+
+            listeners: {
+                'circularProgress.done': '_onProgressDone'
+            },
+
+            _state: 'normal',
+
+            // Listeners
+
+            _onProgressDone: function(event) {
+                event.stopImmediatePropagation();
+                this.fire('done');
+            },
+
+            // Observers
+
+            _changeProgress: function(current, previous) {
+                this.state = current !== 0 ? 'progress' : 'normal';
+            },
+
+            // Properties
+
+            get state() {
+                return this._state;
+            },
+
+            set state(value) {
+                this.toggleClass('ui-progress-state', value === 'progress');
+                this._state = value;
+            },
+
+            toggleState: function(state, condition) {
+                this.state = condition ? state : 'normal';
+            },
+
+            // Public methods
+
+            start: function() {
+                this.state = 'progress';
+            },
+
+            stop: function() {
+                this.state = 'normal';
+                this.$.circularProgress.infinite = false;
+                this.progress = 0;
+                this.fire('done');
+            },
+
+            wait: function() {
+                this.start();
+                Lime.delay(function() {
+                    this.$.circularProgress.infinite = true;
+                }.bind(this), 200);
+            }
+        });
+    </script>
+</dom-module>
+<dom-module id="ui-checkbox" assetpath="checkbox/">
+    <style>
+:host:focus {
+  outline: none;
+}
+:host:hover {
+  background: #19CC95;
+  color: #ffffff;
+}
+:host .ui-checkbox {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  color: #14B886;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+:host .ui-checkbox .mark {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  padding: 0;
+  margin-right: 5px;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 2px solid #19cc95;
+  background-color: #ffffff;
+  transition: 0.1s ease-in-out;
+}
+:host .ui-checkbox .mark svg {
+  fill: #14B886;
+  position: relative;
+  top: -4px;
+  left: 1px;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNoZWNrYm94L2NoZWNrYm94Lmxlc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR0ksS0FBQztFQUNHLGFBQUE7O0FBR0osS0FBQztFQUNHLG1CQUFBO0VBQ0EsY0FBQTs7QUFQUixLQVVJO0VBQ0ksYUFBQTtFQUNBLG1CQUFBO0VBRUEsY0FBQTtFQUNBLGVBQUE7RUFDQSxtQkFBQTtFQUNBLG1CQUFBO0VBQ0EsYUFBYSw4Q0FBYjs7QUFsQlIsS0FVSSxhQVVJO0VBQ0ksaUJBQUE7RUFDQSxlQUFBO0VBRUEscUJBQUE7RUFDQSxrQkFBQTtFQUVBLFVBQUE7RUFDQSxpQkFBQTtFQUVBLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFFQSxzQkFBQTtFQUVBLHlCQUFBO0VBQ0EseUJBQUE7RUFFQSw0QkFBQTs7QUF2Q1osS0FVSSxhQVVJLE1BcUJJO0VBQ0ksYUFBQTtFQUVBLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLFNBQUEiLCJmaWxlIjoiY2hlY2tib3gvY2hlY2tib3guY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAnLi4vY29yZS9jb2xvcnMubGVzcyc7XG5cbjpob3N0IHtcbiAgICAmOmZvY3VzIHtcbiAgICAgICAgb3V0bGluZTogbm9uZTtcbiAgICB9XG5cbiAgICAmOmhvdmVyIHtcbiAgICAgICAgYmFja2dyb3VuZDogIzE5Q0M5NTtcbiAgICAgICAgY29sb3I6ICNmZmZmZmY7XG4gICAgfVxuXG4gICAgLnVpLWNoZWNrYm94IHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgZmxleC1kaXJlY3Rpb246IHJvdztcblxuICAgICAgICBjb2xvcjogIzE0Qjg4NjtcbiAgICAgICAgZm9udC1zaXplOiAxMnB4O1xuICAgICAgICBmb250LXdlaWdodDogbm9ybWFsO1xuICAgICAgICBsZXR0ZXItc3BhY2luZzogMXB4O1xuICAgICAgICBmb250LWZhbWlseTogJ0hlbHZldGljYSBOZXVlJywgSGVsdmV0aWNhLCBBcmlhbCwgc2Fucy1zZXJpZjtcblxuICAgICAgICAubWFyayB7XG4gICAgICAgICAgICB1c2VyLXNlbGVjdDogbm9uZTtcbiAgICAgICAgICAgIGN1cnNvcjogcG9pbnRlcjtcblxuICAgICAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuXG4gICAgICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICAgICAgbWFyZ2luLXJpZ2h0OiA1cHg7XG5cbiAgICAgICAgICAgIHdpZHRoOiAxNnB4O1xuICAgICAgICAgICAgaGVpZ2h0OiAxNnB4O1xuICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4O1xuXG4gICAgICAgICAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuXG4gICAgICAgICAgICBib3JkZXI6IDJweCBzb2xpZCBAbGltZTtcbiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmZmZmY7XG5cbiAgICAgICAgICAgIHRyYW5zaXRpb246IC4xcyBlYXNlLWluLW91dDtcblxuICAgICAgICAgICAgc3ZnIHtcbiAgICAgICAgICAgICAgICBmaWxsOiAjMTRCODg2O1xuXG4gICAgICAgICAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgICAgICAgICAgIHRvcDogLTRweDtcbiAgICAgICAgICAgICAgICBsZWZ0OiAxcHg7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICB9XG59Il0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9 */
+</style>
+
+    <template>
+        <div>
+            <div class="mark">
+                <svg x="0px" y="0px" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512">
+                    <polygon points="434.442,58.997 195.559,297.881 77.554,179.88 0,257.438 195.559,453.003 512,136.551 "></polygon>
+                </svg>
+            </div>
+
+            <div class="label">
+                <content></content>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'ui-checkbox',
+            behaviors: [ Lime.Behaviors.AllowFocus ],
+
+            listeners: {
+                'click': 'toggle'
+            },
+
+            properties: {
+                checked: {
+                    type: Boolean,
+                    value: false,
+                    reflectToAttribute: true,
+                    observer: '_checkedChanged'
+                },
+            },
+
+            toggle: function() {
+                this.checked = !this.checked;
+            },
+
+            _checkedChanged: function() {
+            },
+
+            ready: function() {
+            }
+        });
+    </script>
+</dom-module></div></body></html>

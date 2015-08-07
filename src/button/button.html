@@ -56,13 +56,11 @@
                 this.fire('done');
             },
 
-
             // Observers
 
             _changeProgress: function(current, previous) {
                 this.state = current !== 0 ? 'progress' : 'normal';
             },
-
 
             // Properties
 
@@ -78,7 +76,6 @@
             toggleState: function(state, condition) {
                 this.state = condition ? state : 'normal';
             },
-
 
             // Public methods
 

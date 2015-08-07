@@ -5,6 +5,10 @@
     "rlamana@gmail.com"
   ],
   "license": "MIT",
+  "main": [
+    "dist/lime.html",
+    "dist/lime.min.html"
+  ],
   "ignore": [
     "**/.*",
     "node_modules",
