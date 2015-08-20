@@ -1,22 +1,22 @@
-<dom-module id="ui-button">
+<dom-module id="lime-button">
     <link rel="import" href="../behaviors/behaviors.html">
     <link rel="import" href="../progress/circular.html">
     <link rel="import" type="css" href="button.css">
 
     <template>
-        <ui-button-frame>
-            <ui-button-content>
+        <lime-button-frame>
+            <lime-button-content>
                 <content></content>
-            </ui-button-content>
-        </ui-button-frame>
+            </lime-button-content>
+        </lime-button-frame>
 
-        <ui-progress-circular id="circularProgress" value="{{ progress }}">
-        </ui-progress-circular>
+        <lime-progress-circular id="circularProgress" value="{{ progress }}">
+        </lime-progress-circular>
     </template>
 
     <script>
         Polymer({
-            is: 'ui-button',
+            is: 'lime-button',
             behaviors: [
                 Lime.Behaviors.AllowActive,
                 Lime.Behaviors.AllowFocus,
@@ -69,7 +69,7 @@
             },
 
             set state(value) {
-                this.toggleClass('ui-progress-state', value === 'progress');
+                this.toggleClass('lime-progress-state', value === 'progress');
                 this._state = value;
             },
 
@@ -94,7 +94,7 @@
                 this.start();
                 Lime.delay(function() {
                     this.$.circularProgress.infinite = true;
-                }.bind(this), 200);
+                }.bind(this), 250);
             }
         });
     </script>

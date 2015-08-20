@@ -25,6 +25,33 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     margin: 0 auto;
 }
 
+.limerence-docs .development {
+    text-align: center;
+    padding: 25px 0;
+    color: #19CC95;
+    font-size: 25px;
+    margin: 0 auto;
+    width: 100%;
+    border: rgba(25, 204, 149, 0.5) 1px solid;
+    border-top: 0;
+}
+
+.limerence-docs .development .github {
+    font-size: 16px;
+    color: #aaa;
+}
+
+.limerence-docs .development .github a:visited,
+.limerence-docs .development .github a {
+    color: #aaa;
+    font-weight: bold;
+}
+
+.limerence-docs .development .github a:hover {
+    color: #888;
+    text-decoration: underline;
+}
+
 .limerence-docs .main-header {
     text-align: center;
     padding: 90px 45px;

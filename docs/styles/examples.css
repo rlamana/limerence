@@ -1,4 +1,4 @@
-.limerence-docs .one-button ui-button {
+.limerence-docs .one-button lime-button {
     margin: 5px 50px;
 }
 
@@ -9,7 +9,7 @@
     flex-direction: row;
 }
 
-.limerence-docs .buttons-progress-example ui-button {
+.limerence-docs .buttons-progress-example lime-button {
     margin: 0 20px;
 }
 
@@ -20,17 +20,17 @@
     flex-direction: column;
 }
 
-.limerence-docs .questionnaire ui-checkbox:first-child {
+.limerence-docs .questionnaire lime-checkbox:first-child {
     margin-top: 10px;
 }
 
-.limerence-docs .questionnaire ui-checkbox {
+.limerence-docs .questionnaire lime-checkbox {
     margin-bottom: 5px;
 }
 
 
 
-.limerence-docs .radiobutton-group-example ui-radiobutton {
+.limerence-docs .radio-group-example lime-radio {
     margin-right: 5px;
 }
 
@@ -41,6 +41,6 @@
     flex-direction: column;
 }
 
-.limerence-docs .input-example ui-input {
+.limerence-docs .input-example lime-input {
     margin: 5px 10px;
 }

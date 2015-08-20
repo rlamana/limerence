@@ -17,7 +17,7 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 
-    ui-button-frame {
+    lime-button-frame {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -45,25 +45,25 @@
         transition: width @defaultTime ease-in-out, color @fastTime ease-in-out;
     }
 
-    ui-button-content {
+    lime-button-content {
         opacity: 1;
         transition: opacity @defaultTime ease-in-out;
     }
 
-    ui-progress-circular {
+    lime-progress-circular {
         opacity: 0;
     }
 
     &:focus {
         outline: none;
 
-        ui-button-frame {
+        lime-button-frame {
             outline: none;
         }
     }
 
     &:hover {
-        ui-button-frame {
+        lime-button-frame {
             background: @limeLight;
             border-color: @limeLight;
             color: #ffffff;
@@ -71,37 +71,37 @@
     }
 
     &[active] {
-        ui-button-frame {
+        lime-button-frame {
             background-color: @limeDark;
             border-color: @limeDark;
         }
     }
 
     &[primary] {
-        ui-button-frame {
+        lime-button-frame {
             background-color: @lime;
             color: #fff;
         }
 
         &:hover {
-            ui-button-frame {
+            lime-button-frame {
                 background-color: @limeLight;
                 border-color: @limeLight;
             }
         }
 
         &[active] {
-            ui-button-frame {
+            lime-button-frame {
                 background-color: @limeDark;
                 border-color: @limeDark;
             }
         }
     }
 
-    &.ui-progress-state {
+    &.lime-progress-state {
         pointer-events: none;
 
-        ui-button-frame {
+        lime-button-frame {
             width: @defaultHeight; // To match width & height
             background-color: transparent;
 
@@ -109,16 +109,16 @@
             border-width: 4px;
         }
 
-        ui-button-content {
+        lime-button-content {
             opacity: 0;
         }
 
-        ui-progress-circular {
+        lime-progress-circular {
             opacity: 1;
         }
 
         &:hover {
-            ui-button-frame {
+            lime-button-frame {
                 background-color: transparent;
                 border-color: @greyLight;
             }

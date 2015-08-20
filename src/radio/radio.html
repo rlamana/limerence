@@ -1,19 +1,19 @@
-<dom-module id="ui-radiobutton">
+<dom-module id="lime-radio">
     <link rel="import" href="../behaviors/behaviors.html">
-    <link rel="import" type="css" href="radiobutton.css">
+    <link rel="import" type="css" href="radio.css">
 
     <template>
-        <ui-radiobutton-frame>
+        <lime-radio-frame>
             <div class="mark"></div>
             <div class="label">
                 <content></content>
             </div>
-        </ui-radiobutton-frame>
+        </lime-radio-frame>
     </template>
 
     <script>
         Polymer({
-            is: 'ui-radiobutton',
+            is: 'lime-radio',
             behaviors: [
                 Lime.Behaviors.AllowActive,
                 Lime.Behaviors.AllowFocus,

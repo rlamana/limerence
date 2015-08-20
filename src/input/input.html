@@ -1,17 +1,17 @@
-<dom-module id="ui-input">
+<dom-module id="lime-input">
     <link rel="import" href="../behaviors/behaviors.html">
     <link rel="import" type="css" href="input.css">
 
     <template>
-        <ui-input-frame>
-            <input id="input" type="{{type}}" />
+        <lime-input-frame>
+            <input id="input" type="{{type}}" name="{{type}}" />
             <span class="label">{{label}}</span>
-        </ui-input-frame>
+        </lime-input-frame>
     </template>
 
     <script>
         Polymer({
-            is: 'ui-input',
+            is: 'lime-input',
             behaviors: [
                 Lime.Behaviors.AllowActive,
                 Lime.Behaviors.AllowDisabled
@@ -36,6 +36,11 @@
                     type: String,
                     value: '',
                     observer: '_changeValue'
+                },
+
+                name: {
+                    type: String,
+                    notify: true
                 }
             },
 
@@ -47,12 +52,12 @@
 
             _onInputFocus: function() {
                 this._focus = true;
-                this.classList.add('ui-focus');
+                this.classList.add('lime-focus');
             },
 
             _onInputBlur: function() {
                 this._focus = false;
-                this.classList.remove('ui-focus');
+                this.classList.remove('lime-focus');
             },
 
             _onInputChange: function() {
@@ -62,7 +67,7 @@
             _changeValue: function(value) {
                 // This won't trigger '_onInputChange'
                 this.$.input.value = value;
-                this.toggleClass('ui-filled', value !== '');
+                this.toggleClass('lime-filled', value !== '');
             },
 
             focus: function() {

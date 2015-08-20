@@ -3,7 +3,7 @@
 :host {
     display: inline-block;
 
-    ui-input-frame {
+    lime-input-frame {
         position: relative;
 
         display: flex;
@@ -59,15 +59,15 @@
         transform-origin: 0% 50%;
     }
 
-    &.ui-focus,
-    &.ui-filled {
+    &.lime-focus,
+    &.lime-filled {
         .label {
             transform: scale3d(0.75, 0.75, 1) translate3d(0, -12px, 0);
         }
     }
 
-    &.ui-focus {
-        ui-input-frame {
+    &.lime-focus {
+        lime-input-frame {
             border-color: @lime;
         }
 

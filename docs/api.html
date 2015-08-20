@@ -1,0 +1,94 @@
+<dom-module id="docs-api">
+    <style>
+        :host {
+            padding: 0px;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toggle-details {
+            cursor: pointer;
+
+            display: flex;
+            flex-direction: column-reverse;
+
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .toggle-details svg {
+            width: 30px;
+            height: 30px;
+
+            transition: all .5s ease-in-out;
+        }
+
+        .toggle-details svg .mark {
+            stroke-width: 5px;
+            stroke: #aaa;
+        }
+
+        .toggle-details:hover svg .mark {
+            stroke: #19CC95;
+        }
+
+        :host[open] .toggle-details svg {
+            transform: rotateZ(-135deg);
+        }
+
+        .content {
+            overflow: hidden;
+            max-height: 0;
+            margin-top: 0;
+            transition: all .5s ease-in-out;
+        }
+
+        :host[open] .content {
+            max-height: 1000px;
+            margin-top: 20px;
+        }
+
+    </style>
+
+    <template>
+        <div class="toggle-details">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 314 314" version="1.1">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(2.000000, 2.000000)" stroke="#19CC95" stroke-width="4" class="mark">
+                        <circle cx="155" cy="155" r="155"/>
+                        <path d="M156 71.401849L156 239.743493M239.341644 154L71 154" stroke-linecap="square"/>
+                    </g>
+                </g>
+            </svg>
+        </div>
+
+        <div id="content" class="content">
+            <content></content>
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'docs-api',
+
+            properties: {
+                open: {
+                    type: Boolean,
+                    value: false,
+                    observer: '_changeOpen',
+                    reflectToAttribute: true,
+                    notify: true
+                }
+            },
+
+            listeners: {
+                up: 'toggle'
+            },
+
+            toggle: function() {
+                this.open = !this.open;
+            }
+        });
+    </script>
+</dom-module>

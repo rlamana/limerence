@@ -18,9 +18,15 @@
     <body class="limerence-docs">
         <link rel="import" href="../dist/lime.html">
         <link rel="import" href="example.html">
+        <link rel="import" href="api.html">
+
+        <div class="development">
+            Library still under <strong>heavy development</strong>
+            <div class="github">But in the meantime, you can <a href="https://github.com/rlamana/Limerence">fork me on github</a></div>
+        </div>
 
         <header class="main-header">
-            <img src="images/mark.png" />
+            <img src="images/mark.svg" />
         </header>
 
         <section class="main-block block">
@@ -39,185 +45,195 @@
             <p>
                 Based on Colin Garvin's <a href="https://dribbble.com/shots/1426764-Submit-Button">submit button</a> and Mary Lou's <a href="http://tympanus.net/codrops/2014/04/09/how-to-create-a-circular-progress-button/">codrops article</a> and implementation.
             </p>
+
             <docs-example head="Default Buttons" href="code/button/default.html" class="buttons-default-example one-button"></docs-example>
-
             <docs-example head="Wait" href="code/button/wait.html" class="buttons-infinite-example one-button"></docs-example>
+            <docs-example head="Progress" href="code/button/loaders.html" script="code/button/loaders.js" class="buttons-loaders-example one-button"></docs-example>
+            <docs-example head="Setting Progress" href="code/button/progress.html" class="buttons-progress-example"></docs-example>
+            <docs-api>
+                <div class="table">
+                    <h3>Attributes</h3>
+                    <ul>
+                        <li>
+                            <div class="property">primary</div>
+                            <div class="type">Boolean</div>
+                            <div class="description">Identifies the button as the primary action</div>
+                            <div class="default">false</div>
+                        </li>
 
-            <docs-example head="Progress" href="code/button/progress.html" class="buttons-progress-example"></docs-example>
+                        <li>
+                            <div class="property">secondary</div>
+                            <div class="type">Boolean</div>
+                            <div class="description">Identifies the button as a standard action button</div>
+                            <div class="default">true</div>
+                        </li>
 
-            <docs-example head="Progress Example" href="code/button/loaders.html" script="code/button/loaders.js" class="buttons-loaders-example one-button"></docs-example>
+                        <li>
+                            <div class="property">progress</div>
+                            <div class="type">Number</div>
+                            <div class="description">The number that represents current progress percentage (%)</div>
+                            <div class="default">0</div>
+                        </li>
+                    </ul>
+                </div>
 
-            <div class="table">
-                <h3>Attributes</h3>
-                <ul>
-                    <li>
-                        <div class="property">primary</div>
-                        <div class="type">Boolean</div>
-                        <div class="description">Identifies the button as the primary action</div>
-                        <div class="default">false</div>
-                    </li>
+                <div class="table">
+                    <h3>Methods</h3>
+                    <ul>
+                        <li>
+                            <div class="property">wait()</div>
+                            <div class="description">Enables the infinite loading state</div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="property">start()</div>
+                            <div class="description">Programatically enables the progress state (also enabled when progress attribute is > 0)</div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="property">stop()</div>
+                            <div class="description">Restores button to normal state</div>
+                        </li>
+                    </ul>
+                </div>
 
-                    <li>
-                        <div class="property">secondary</div>
-                        <div class="type">Boolean</div>
-                        <div class="description">Identifies the button as a standard action button</div>
-                        <div class="default">true</div>
-                    </li>
-
-                    <li>
-                        <div class="property">progress</div>
-                        <div class="type">Number</div>
-                        <div class="description">The number that represents current progress percentage (%)</div>
-                        <div class="default">0</div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="table">
-                <h3>Methods</h3>
-                <ul>
-                    <li>
-                        <div class="property">wait()</div>
-                        <div class="description">Enables the infinite loading state</div>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <div class="property">start()</div>
-                        <div class="description">Programatically enables the progress state (also enabled when progress attribute is > 0)</div>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <div class="property">stop()</div>
-                        <div class="description">Restores button to normal state</div>
-                    </li>
-                </ul>
-            </div>
-
-             <div class="table">
-                <h3>Events</h3>
-                <ul>
-                    <li>
-                        <div class="property">done</div>
-                        <div class="description">Fired when the progress bar is completed or the wait stops.</div>
-                    </li>
-                </ul>
-            </div>
+                 <div class="table">
+                    <h3>Events</h3>
+                    <ul>
+                        <li>
+                            <div class="property">done</div>
+                            <div class="description">Fired when the progress bar is completed or the wait stops.</div>
+                        </li>
+                    </ul>
+                </div>
+            </docs-api>
         </section>
 
         <section class="block">
             <h1>Input</h1>
             <docs-example href="code/input/default.html" class="input-example"></docs-example>
 
-            <div class="table">
-                <h3>Attributes</h3>
-                <ul>
-                    <li>
-                        <div class="property">type</div>
-                        <div class="type">String</div>
-                        <div class="description">Specifies the type of input element to display: 'text', 'password', 'email'</div>
-                        <div class="default">text</div>
-                    </li>
+            <docs-api>
+                <div class="table">
+                    <h3>Attributes</h3>
+                    <ul>
+                        <li>
+                            <div class="property">type</div>
+                            <div class="type">String</div>
+                            <div class="description">Specifies the type of input element to display: 'text', 'password', 'email'</div>
+                            <div class="default">text</div>
+                        </li>
 
-                    <li>
-                        <div class="property">value</div>
-                        <div class="type">String</div>
-                        <div class="description">Input's value</div>
-                    </li>
-                </ul>
-            </div>
+                        <li>
+                            <div class="property">value</div>
+                            <div class="type">String</div>
+                            <div class="description">Input's value</div>
+                        </li>
 
-            <div class="table">
-                <h3>Methods</h3>
-                <ul>
-                    <li>
-                        <div class="property">focus()</div>
-                        <div class="description">Gives focus to the input element</div>
-                    </li>
-                    <li>
-                        <div class="property">blur()</div>
-                        <div class="description">Removes focus from the input element</div>
-                    </li>
-                </ul>
-            </div>
+                        <li>
+                            <div class="property">name</div>
+                            <div class="type">String</div>
+                            <div class="description">Input's name inside a form</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="table">
+                    <h3>Methods</h3>
+                    <ul>
+                        <li>
+                            <div class="property">focus()</div>
+                            <div class="description">Gives focus to the input element</div>
+                        </li>
+                        <li>
+                            <div class="property">blur()</div>
+                            <div class="description">Removes focus from the input element</div>
+                        </li>
+                    </ul>
+                </div>
+            </docs-api>
         </section>
 
         <section class="block">
             <h1>Checkbox</h1>
             <docs-example href="code/checkbox/default.html" class="checkbox-example questionnaire"></docs-example>
+            <docs-api>
+                <div class="table">
+                    <h3>Attributes</h3>
+                    <ul>
+                        <li>
+                            <div class="property">checked</div>
+                            <div class="type">Boolean</div>
+                            <div class="description">Gets or sets the state, 'true' is checked and 'false' is unchecked.</div>
+                            <div class="default">false</div>
+                        </li>
+                    </ul>
+                </div>
 
-            <div class="table">
-                <h3>Attributes</h3>
-                <ul>
-                    <li>
-                        <div class="property">checked</div>
-                        <div class="type">Boolean</div>
-                        <div class="description">Gets or sets the state, 'true' is checked and 'false' is unchecked.</div>
-                        <div class="default">false</div>
-                    </li>
-                </ul>
-            </div>
+                <div class="table">
+                    <h3>Methods</h3>
+                    <ul>
+                        <li>
+                            <div class="property">toggle()</div>
+                            <div class="description">Toggles checked state</div>
+                        </li>
+                    </ul>
+                </div>
 
-            <div class="table">
-                <h3>Methods</h3>
-                <ul>
-                    <li>
-                        <div class="property">toggle()</div>
-                        <div class="description">Toggles checked state</div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="table">
-                <h3>Events</h3>
-                <ul>
-                    <li>
-                        <div class="property">changed</div>
-                        <div class="description">Fired when the checked value changes</div>
-                    </li>
-                </ul>
-            </div>
+                <div class="table">
+                    <h3>Events</h3>
+                    <ul>
+                        <li>
+                            <div class="property">changed</div>
+                            <div class="description">Fired when the checked value changes</div>
+                        </li>
+                    </ul>
+                </div>
+            </docs-api>
         </section>
 
         <section class="block">
             <h1>Radiobutton</h1>
 
-            <docs-example href="code/radiobutton/default.html" class="radiobutton-example questionnaire"></docs-example>
+            <docs-example href="code/radio/default.html" class="radio-example questionnaire"></docs-example>
+            <docs-example head="Group of Radiobuttons" href="code/radio/group.html" class="radio-group-example"></docs-example>
+            <docs-api>
+                <div class="table">
+                    <h3>Attributes</h3>
+                    <ul>
+                        <li>
+                            <div class="property">checked</div>
+                            <div class="type">Boolean</div>
+                            <div class="description">Gets or sets the state, 'true' is checked and 'false' is unchecked.</div>
+                            <div class="default">false</div>
+                        </li>
+                    </ul>
+                </div>
 
-            <docs-example head="Group of Radiobuttons" href="code/radiobutton/group.html" class="radiobutton-group-example"></docs-example>
+                <div class="table">
+                    <h3>Methods</h3>
+                    <ul>
+                        <li>
+                            <div class="property">toggle()</div>
+                            <div class="description">Toggles checked state</div>
+                        </li>
+                    </ul>
+                </div>
 
-            <div class="table">
-                <h3>Attributes</h3>
-                <ul>
-                    <li>
-                        <div class="property">checked</div>
-                        <div class="type">Boolean</div>
-                        <div class="description">Gets or sets the state, 'true' is checked and 'false' is unchecked.</div>
-                        <div class="default">false</div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="table">
-                <h3>Methods</h3>
-                <ul>
-                    <li>
-                        <div class="property">toggle()</div>
-                        <div class="description">Toggles checked state</div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="table">
-                <h3>Events</h3>
-                <ul>
-                    <li>
-                        <div class="property">changed</div>
-                        <div class="description">Fired when the checked value changes</div>
-                    </li>
-                </ul>
-            </div>
+                <div class="table">
+                    <h3>Events</h3>
+                    <ul>
+                        <li>
+                            <div class="property">changed</div>
+                            <div class="description">Fired when the checked value changes</div>
+                        </li>
+                    </ul>
+                </div>
+            </docs-api>
         </section>
+
+        <script type="text/javascript" src="index.js"></script>
     </body>
 </html>
