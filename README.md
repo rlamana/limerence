@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="http://www.rlamana.es/limerence/docs/">
-    <img height="80" width="80" src="http://www.rlamana.es/limerence/docs/images/mark.svg">
+  <a href="http://www.rlamana.com/limerence/docs/">
+    <img height="80" width="80" src="http://www.rlamana.com/limerence/docs/images/mark.svg">
   </a>
 </p>
 
@@ -13,5 +13,5 @@ An involuntary interpersonal state that involves <strong>intrusive, obsessive</s
 
 ### Documentation
 
-For more information, API docs and examples see the [documentation page](http://www.rlamana.es/limerence/docs/).
+For more information, API docs and examples see the [documentation page](http://www.rlamana.com/limerence/docs/).
 
