@@ -738,8 +738,39 @@
                 this.checked = !this.checked;
             },
 
-            _changeChecked: function(value) {
-                this.fire('changed', value);
+            _changeChecked: function(value, oldvalue) {
+                if (typeof oldvalue !== 'undefined' && 
+                    value !== oldvalue && value) {
+                    this.fire('selected', value);
+                }
+            }
+        });
+    </script>
+</dom-module><dom-module id="lime-radiogroup" assetpath="radio/">
+    <template>
+        <content></content>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'lime-radiogroup',
+            behaviors: [
+                Lime.Behaviors.AllowDisabled
+            ],
+
+            ready: function() {
+                this.getEffectiveChildren().forEach(function(button) {
+                    this.listen(button, 'selected', '_onRadioSelected');
+                }.bind(this));
+            },
+
+            _onRadioSelected: function(e) {
+                this.getEffectiveChildren().forEach(function(button) {
+                    if (button !== e.currentTarget) {
+                        button.removeAttribute('checked');
+                    }
+                }.bind(this));
+                this.fire('selected', e.currentTarget);
             }
         });
     </script>

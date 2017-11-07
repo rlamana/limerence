@@ -37,8 +37,11 @@
                 this.checked = !this.checked;
             },
 
-            _changeChecked: function(value) {
-                this.fire('changed', value);
+            _changeChecked: function(value, oldvalue) {
+                if (typeof oldvalue !== 'undefined' && 
+                    value !== oldvalue && value) {
+                    this.fire('selected', value);
+                }
             }
         });
     </script>
