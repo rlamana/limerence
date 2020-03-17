@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://www.rlamana.com/limerence/docs/">
-    <img height="80" width="80" src="http://www.rlamana.com/limerence/docs/images/mark.svg">
+    <img height="140" src="https://raw.githubusercontent.com/rlamana/Limerence/master/docs/images/logo-vertical.png">
   </a>
 </p>
 
